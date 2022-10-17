@@ -1,0 +1,16 @@
+{
+  "name": "node_reference",
+  "version": "1.0.0",
+  "description": "duniverse inc developer node reference",
+  "main": "1-intro.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "nodejs",
+    "javascript",
+    "express"
+  ],
+  "author": "duniverse",
+  "license": "MIT"
+}
