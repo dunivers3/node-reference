@@ -1,9 +1,13 @@
 const express = require("express")
+//middleware access 
+const logger = require("./logger-middleware")
+const authorize = require("./authenticate")
 
 const server = express()
 
 //req ==> middleware ==> res
 
+/*
 let logger = (req,res,next)=>{
   const method = req.method
   const url = req.url
@@ -11,8 +15,10 @@ let logger = (req,res,next)=>{
   console.log(method, url, time)
   next()
 }
+*/
+server.use([authorize, logger])
 
-server.get("/", logger, (req,res)=>{
+server.get("/", (req,res)=>{
   res.status(200).send("Homepage!")
 /*
   const method = req.method
@@ -23,7 +29,19 @@ server.get("/", logger, (req,res)=>{
 */
 })
 
-server.get("/about",logger, (req,res)=>{
+server.get("/products", (req,res)=>{
+  res.status(200).send("products!")
+})
+
+server.get("/dominus/items", (req,res)=>{
+  res.status(200).send("items!")
+})
+
+server.get("/api/all", (req,res)=>{
+  res.status(200).send("api!")
+})
+
+server.get("/dominus/about",(req,res)=>{
   res.status(200).send("About page!")
 })
 
