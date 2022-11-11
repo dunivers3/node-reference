@@ -1,5 +1,8 @@
 const express = require("express")
 //middleware access 
+//third party middleware
+const morgan = require("morgan")
+//local or own middleware
 const logger = require("./logger-middleware")
 const authorize = require("./authenticate")
 
