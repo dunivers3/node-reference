@@ -25,6 +25,14 @@ server.post("/api/autobots", (req,res)=>{
   res.status(201).json({success: true, transformer: name})
 })
 
+server.post("/api/postman/autobots", (req,res)=>{
+  const {name} = req.body
+  if(!name){
+    return res.status(401).json({success: false, msg: "Cannont parse! Provide a name value!"})
+  }
+  res.status(201).json({success: true, data: [...transformers, name]})
+})
+
 
 //post through the form methods
 server.post("/login", (req,res)=>{
