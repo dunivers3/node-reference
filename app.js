@@ -12,6 +12,7 @@ server.use(express.urlencoded({ extended: false }))
 //parse json data coming in
 server.use(express.json())
 
+//routes
 server.use("/api/autobots", transformers)
 server.use("/login", auth)
 

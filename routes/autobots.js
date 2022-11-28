@@ -9,6 +9,7 @@ const {
   deleteAutobot
 } = require("../controllers/autobots")
 
+/*
 //GET request ==> default
 router.get("/", getAutobot)
 //POST request
@@ -19,5 +20,12 @@ router.post("/postman", createAutobotPostman)
 router.put("/:id", updateAutobot)
 //DELETE request
 router.delete("/:id", deleteAutobot)
+*/
+
+//alternative method
+
+router.route("/").get(getAutobot).post(createAutobot)
+router.route("/postman").post(createAutobotPostman)
+router.route("/:id").put(updateAutobot).delete(deleteAutobot)
 
 module.exports = router
